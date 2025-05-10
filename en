@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$1" == "1" ]; then
+    SERVER="mysql1"
+else
+    SERVER="mysql0"
+fi
+
+ddc exec -ti ${SERVER} bash
