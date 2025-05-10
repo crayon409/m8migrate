@@ -1,0 +1,5 @@
+#!/bin/bash
+VAR=$1
+VAR=${VAR:-'server_id'}
+
+mysql -uroot -proot -e "show variables like '$VAR'"
