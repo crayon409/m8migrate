@@ -1,0 +1,8 @@
+
+rm -rf data/*
+
+ddc restart
+
+mkdir -p data/mysql1/master 
+
+cp data/mysql0/ca.pem data/mysql0/client-cert.pem data/mysql0/client-key.pem data/mysql1/master/
