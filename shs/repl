@@ -1,0 +1,15 @@
+#!/bin/bash
+set -ex
+
+mysql -uroot -proot -e "stop replica;"
+ 
+
+mysql -uroot -proot -e "change REPLICATION SOURCE to source_host='mysql0',source_auto_position=1, 
+SOURCE_SSL=1, 
+SOURCE_SSL_CA='/var/lib/mysql/master/ca.pem', 
+SOURCE_SSL_CERT='/var/lib/mysql/master/client-cert.pem', 
+SOURCE_SSL_KEY='/var/lib/mysql/master/client-key.pem';"
+
+mysql -uroot -proot -e "start replica user='repl' password='repl';"
+
+/root/shs/statusrepl
